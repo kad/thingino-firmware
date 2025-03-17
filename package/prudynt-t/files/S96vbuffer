@@ -41,7 +41,7 @@ start() {
 		openRTSP -V -u $rtsp_username $rtsp_password \
 			-w $rtsp_width -h $rtsp_height -f $rtsp_fps \
 			-d $clip_duration -v $clip_format -H \
-			-t rtsp://[::1]/ch1 > "$tmpfile" 2>/dev/null
+			-t rtsp://localhost/ch1 > "$tmpfile" 2>/dev/null
 		while [ -f "$lockfile" ]; do
 			age=$(( $(date +%s) - $(date +%s -r "$lockfile") ))
 			[ $age -gt 100 ] && rm "$lockfile"
